@@ -16,16 +16,16 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "eMail")
-    private String email;
+    @Column(name = "age")
+    private int age;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email) {
+    public User(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.age = age;
     }
 
     public Long getId() {
@@ -52,11 +52,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public int getAge() {
+        return age;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAge(int age) {
+        this.age = age;
     }
 }
