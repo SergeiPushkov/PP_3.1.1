@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("/users")
     public String sayUsers(Model model) {
-        model.addAttribute("users", userService.readUsers());
+        model.addAttribute("users", userService.getAllUsers());
         return "/users";
     }
 
