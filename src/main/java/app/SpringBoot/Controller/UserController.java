@@ -1,7 +1,7 @@
-package app.Controller;
+package app.SpringBoot.Controller;
 
-import app.Model.User;
-import app.Service.UserService;
+import app.SpringBoot.Model.User;
+import app.SpringBoot.Service.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,45 +11,45 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class UserController {
 
-    private final UserService userService;
+    private final UserServiceImp userServiceImp;
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public UserController(UserServiceImp userServiceImp) {
+        this.userServiceImp = userServiceImp;
     }
 
     @GetMapping("/users")
     public String sayUsers(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
-        return "/users";
+        model.addAttribute("users", userServiceImp.findAll());
+        return "users";
     }
 
     @GetMapping("/new")
     public String newUser(Model model) {
         model.addAttribute("new_user", new User());
-        return "/new";
+        return "new";
     }
 
     @PostMapping("/users")
     public String create(@ModelAttribute("user") User user) {
-        userService.createUsers(user);
+        userServiceImp.saveUser(user);
         return "redirect:/users";
     }
 
     @GetMapping("{id}/update")
     public String updateUser(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("user", userService.getUsers(id));
-        return "/update";
+        model.addAttribute("user", userServiceImp.findById(id));
+        return "update";
     }
 
     @PostMapping("{id}/updateUser")
     public String updateUsers(@ModelAttribute("user") User user) {
-        userService.updateUser(user);
+        userServiceImp.saveUser(user);
         return "redirect:/users";
     }
 
     @PostMapping("{id}/delete")
     public String deleteUser(@PathVariable("id") Long id) {
-        userService.deleteUsers(id);
+        userServiceImp.deleteById(id);
         return "redirect:/users";
     }
 }
