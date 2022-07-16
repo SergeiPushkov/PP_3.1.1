@@ -1,8 +1,8 @@
-package app.SpringBoot.Service;
+package SpringBoot.Service;
 
 
-import app.SpringBoot.Dao.UserDao;
-import app.SpringBoot.Model.User;
+import SpringBoot.Dao.UserDao;
+import SpringBoot.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

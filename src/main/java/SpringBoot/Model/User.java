@@ -1,4 +1,4 @@
-package app.SpringBoot.Model;
+package SpringBoot.Model;
 
 import javax.persistence.*;
 import java.util.Objects;

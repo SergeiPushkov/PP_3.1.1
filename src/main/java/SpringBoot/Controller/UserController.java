@@ -1,7 +1,7 @@
-package app.SpringBoot.Controller;
+package SpringBoot.Controller;
 
-import app.SpringBoot.Model.User;
-import app.SpringBoot.Service.UserServiceImp;
+import SpringBoot.Model.User;
+import SpringBoot.Service.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
